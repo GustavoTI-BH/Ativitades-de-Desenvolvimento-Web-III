@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Questão 2 - DEV III</title>
+    <style>
+        body {
+            font: normal 18pt Arial;
+        }
+
+        input {
+            font: normal 18pt Arial;
+            width: 100px;
+        }
+
+        div#res {
+            margin-top: 20px;
+        }
+
+        p {
+            text-align: justify;
+        }
+
+        div#assinatura {
+            position: absolute;
+            bottom: 0;
+            right: 0;
+        }
+    </style>
+</head>
+
+<body>
+    <h1>Questão 02</h1>
+    <p>Crie um componente que tenha uma caixa de texto que só aceita números e tenha o rótulo (label) Calcular o
+        fatorial de.
+        O componente deve ainda possuir um botão calcular que quando acionado deve calcular o fatorial do número
+        digitado,
+        imprimido o resultado e o tempo necessário para a execução. (Dica: usar o objeto javascript Date)</br></br>
+
+        O resultado deve ser mostrado no formato 53! = XXXXXX (yyy milisegundos);</br>
+        O código deve calcular o fatorial e não apenas imprimir uma string com a resposta.
+    </p>
+    </br>
+    <p>Calcular o fatorial de:<input type="number" name="txt1" id="txt1"></p>
+    <input type="button" value="Calcular" onclick="calcular()">
+    <div id="res">Resultado</div>
+
+    <div id="assinatura">Desenvolvido por <i>Gustavo Alves</i></div>
+    <script>
+        function calcular() {
+            const inicio = new Date().getTime()
+
+            var tn1 = window.document.getElementById('txt1')
+
+            var n1 = Number(tn1.value)
+            var resp = 1;
+
+            for (var i = 1; i <= n1; i++)
+                resp *= i;
+
+            const tempExecutado = new Date().getTime() - inicio
+            res.innerHTML = `${n1}! = ${resp} (${tempExecutado} milisegundos)`
+        }
+    </script>
+
+</html>

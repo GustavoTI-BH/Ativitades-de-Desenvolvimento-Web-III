@@ -1,0 +1,101 @@
+<!-- 2° desafio
+Implementar um banner rotativo 
+Escolher 2 imagens 
+E essas imagens deve ser trocada a cada 5s
+Botão para parar a troca o banner/Precisa ter como voltar a rotação -->
+
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>2º Desafio - DEV III</title>
+    <style>
+        img {
+            float: left;
+            margin: 0px 10px 10px 0;
+
+        }
+
+        input {
+            font: normal 18pt Arial;
+            width: 120px;
+        }
+
+        div#assinatura {
+            font: normal 18pt Arial;
+            position: absolute;
+            bottom: 0;
+            right: 0;
+        }
+    </style>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>
+
+    <script type="text/javascript">
+
+        function MudarSlide(teste){
+            setTimeout(teste, 2000)
+        }
+
+        var nomeBotao = "continua"
+
+        function Slide1(nomeBotao) {
+            //res.innerHTML = `resp: ${nomeBotao}`
+            
+            if (nomeBotao == "Parar") {
+                alert(`Entrei no PARAR = 1!`)
+                MudarSlide("Slide2('Parar')")
+            } else {
+                document.getElementById('imagemSlide').src = "gol_1.jpg";
+                MudarSlide("Slide2('Continua')")
+                //setTimeout("Slide2()", 2000)
+            }
+
+        }
+
+        function Slide2(nomeBotao) {
+            //nomeBotao = "Parar"
+            
+            if (nomeBotao == "Parar") {
+                alert(`Entrei no PARAR = 2!`)
+                MudarSlide("Slide1('Parar')")
+                //setTimeout("Slide1('Continua')", 2000)
+            }else {
+                document.getElementById('imagemSlide').src = "gol_2.jpg";
+                MudarSlide("Slide1('Continua')")
+                //setTimeout("Slide2()", 2000)
+            }
+        }
+
+        function Parar() {
+            nomeBotao = "Parar"
+
+            var linkImagem = $('#imagemSlide').attr('src');
+
+            res.innerHTML = `resp: ${linkImagem} | nome  do botao: ${nomeBotao}`
+
+            if (linkImagem == "gol_2.jpg") {
+                document.getElementById('imagemSlide').src = "gol_2.jpg"
+            } else {
+                document.getElementById('imagemSlide').src = "gol_1.jpg"
+            }
+        }
+    </script>
+</head>
+
+<body onLoad="Slide1('Continua')">
+
+    <img id="imagemSlide" width="730" height="490">
+
+    <input type="button" name="Parar" value="Parar" onclick="Parar(this.name)">
+
+    <input type="button" name="Retornar" value="Retomar" onclick="Slide1()">
+
+    <div id="res">Resultado</div>
+
+    <div id="assinatura">Desenvolvido por <i>Gustavo Alves</i></div>
+</body>
+
+
+</html>

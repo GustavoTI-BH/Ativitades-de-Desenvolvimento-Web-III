@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Questão 6 - DEV III</title>
+    <style>
+        body {
+            font: normal 18pt Arial;
+        }
+
+        input {
+            font: normal 18pt Arial;
+            width: 100px;
+        }
+
+        div#res {
+            margin-top: 20px;
+        }
+
+        p {
+            text-align: justify;
+        }
+
+        div#assinatura {
+            position: absolute;
+            bottom: 0;
+            right: 0;
+        }
+    </style>
+</head>
+
+<body>
+    <h1>Questão 06</h1>
+    <p>Faça um Programa que peça as 4 notas bimestrais e mostre a média. (Bônus de um ponto para o
+        sorteado ou voluntário que resolver)
+    </p>
+    </br>
+    <p>Informe a nota do 1º bimestre: <input type="number" name="txt1" id="txt1"></p>
+    <p>Informe a nota do 2º bimestre: <input type="number" name="txt2" id="txt2"></p>
+    <p>Informe a nota do 3º bimestre: <input type="number" name="txt3" id="txt3"></p>
+    <p>Informe a nota do 4º bimestre: <input type="number" name="txt4" id="txt4"></p>
+    <input type="button" value="Calcular" onclick="Calcular()">
+    <div id="res">Resultado</div>
+
+    <div id="assinatura">Desenvolvido por <i>Gustavo Alves</i></div>
+    <script>
+        function Calcular() {
+            const inicio = new Date().getTime()
+
+            var tn1 = window.document.getElementById('txt1')
+            var n1 = Number(tn1.value)
+
+            var tn2 = window.document.getElementById('txt2')
+            var n2 = Number(tn2.value)
+
+            var tn3 = window.document.getElementById('txt3')
+            var n3 = Number(tn3.value)
+
+            var tn4 = window.document.getElementById('txt4')
+            var n4 = Number(tn4.value)
+            
+            var media = (n1 + n2 + n3 + n4) /4
+
+            res.innerHTML = `A media das notas informada é ${media}!`
+        }
+    </script>
+
+</html>

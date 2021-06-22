@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Questão 2 - DEV III</title>
+    <style>
+        body {
+            font: normal 18pt Arial;
+        }
+
+        input {
+            font: normal 18pt Arial;
+            width: 100px;
+        }
+
+        div#res {
+            margin-top: 20px;
+        }
+
+        p {
+            text-align: justify;
+        }
+
+        div#assinatura {
+            position: absolute;
+            bottom: 0;
+            right: 0;
+        }
+    </style>
+</head>
+
+<body>
+    <h1>Questão 02</h1>
+    <p>Faça um Programa que converta metros para centímetros. (Dica: 1 metro = 100 centímetros) (Bônus
+        de um ponto para o sorteado ou voluntário que resolver)
+    </p>
+    </br>
+    <p>Infomre o número: <input type="number" name="txt1" id="txt1">metros</p>
+    <input type="button" value="Converter" onclick="Converter()">
+    <div id="res">Resultado</div>
+
+    <div id="assinatura">Desenvolvido por <i>Gustavo Alves</i></div>
+    <script>
+        function Converter() {
+            const inicio = new Date().getTime()
+
+            var tn1 = window.document.getElementById('txt1')
+
+            var n1 = Number(tn1.value)
+            var resp = n1*100
+
+            res.innerHTML = `${n1}m em centimetros é ${resp}cm!`
+        }
+    </script>
+
+</html>

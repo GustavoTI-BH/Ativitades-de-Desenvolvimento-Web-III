@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Questão 9 - DEV III</title>
+    <style>
+        body {
+            font: normal 18pt Arial;
+        }
+
+        input {
+            font: normal 18pt Arial;
+            width: 250px;
+        }
+
+        div#res {
+            margin-top: 20px;
+        }
+
+        p {
+            text-align: justify;
+        }
+
+        div#assinatura {
+            position: absolute;
+            bottom: 0;
+            right: 0;
+        }
+    </style>
+</head>
+
+<body>
+    <h1>Questão 09</h1>
+    <p>Crie uma função em JavaScript que receba 2 palavras através de campos de formulário e depois imprima-as
+        intercaladas em um outro campo de formulário que deve está desabilitado (o usuário não deve conseguir digitar
+        nenhum valor nesse campo). Ex.: ‘Joao’ e ‘Mary’; a impressão deve ser: ‘JMoaaroy’.
+    </p>
+    </br>
+    <p>Informe a 1º palavra: <input type="text" name="txt1" id="txt1"></p>
+    <p>Informe a 2º palavra: <input type="text" name="txt2" id="txt2"></p>
+    </br>
+    <p>Palavra intercalada: <input type="text" name="result" id="result" disabled="disabled"></p>
+
+    <input type="button" value="Intercalar palavras" onclick="Intercalar()">
+
+    <div id="assinatura">Desenvolvido por <i>Gustavo Alves</i></div>
+    <script>
+        function Intercalar() {
+
+            var palavra1 = document.getElementById("txt1").value;
+            var palavra2 = document.getElementById("txt2").value;
+
+            var array = [];
+
+            j = 0;
+            for (i = 0; i < palavra1.length; i++) {
+                array[j] = palavra1[i];
+                j = j + 2;
+            }
+            j = 1;
+            for (i = 0; i < palavra2.length; i++) {
+                array[j] = palavra2[i];
+                j = j + 2;
+            }
+
+            var result = array.join('');
+
+            document.getElementById("result").value = result;
+        }
+    </script>
+</body>
+
+</html>

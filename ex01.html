@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Questão 1 - DEV III</title>
+    <style>
+        body {
+            font: normal 18pt Arial;
+        }
+
+        input {
+            font: normal 18pt Arial;
+            width: 100px;
+        }
+
+        div#res {
+            margin-top: 20px;
+        }
+
+        p {
+            text-align: justify;
+        }
+
+        div#assinatura {
+            position: absolute;
+            bottom: 0;
+            right: 0;
+        }
+    </style>
+</head>
+
+<body>
+    <h1>Questão 01</h1>
+    <p>Crie um componente que tenha duas caixas de texto que só aceitam números e tenha os rótulos (label) valor mínimo
+        e valor máximo,
+        checando sempre se o valor mínimo é menor que o valor máximo. O componente deve ainda possuir um botão calcular
+        que quando
+        acionado deve contar e imprimir quantos números existem entre valor mínimo e valor máximo (exclusives*) que
+        sejam múltiplos
+        de 2 e 3 simultaneamente. Não deve ser possível calcular se faltar algum dos números. * exclusives - Ou seja,
+        quantos números
+        existem entre valor mínimo e valor máximo, excluindo o valor mínimo e valor máximo</p>
+    </br>
+    <p>Valor minimo:<input type="number" name="txt1" id="txt1"></p>
+    <p>Valor maximo:<input type="number" name="txt2" id="txt2"></p>
+    <input type="button" value="Calcular" onclick="calcular()">
+    <div id="res">Resultado</div>
+
+    <div id="assinatura">Desenvolvido por <i>Gustavo Alves</i></div>
+    <script>
+        function calcular() {
+            var tn1 = window.document.getElementById('txt1')
+            var tn2 = window.document.querySelector('input#txt2')
+
+            var n1 = Number(tn1.value)
+            var n2 = Number(tn2.value)
+            var contInterValoMaxMinMultiplos2e3 = 0
+            var contInterValoMaxMin = 0
+
+            if (n1 < n2) {
+                for (var i = n1; i <= n2; i++) {
+                    contInterValoMaxMin++
+                    if ((i % 2 == 0) && (i % 3 == 0)) {
+                        contInterValoMaxMinMultiplos2e3++
+                    }
+                }
+                res.innerHTML = `Existem <strong>${contInterValoMaxMin}</strong> números entre ${n1} e o ${n2}!</br>
+                                Existem <strong>${contInterValoMaxMinMultiplos2e3}</strong> números entre ${n1} e o ${n2} que são múltiplos
+        de 2 e 3 simultaneamente!</br>`
+            } else {
+                res.innerHTML = `O número ${n1} é maior que o ${n2}!</br> <strong> Digite as informações corretas.</strong>`
+            }
+        }
+    </script>
+
+</html>

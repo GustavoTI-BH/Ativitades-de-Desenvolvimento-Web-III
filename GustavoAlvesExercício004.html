@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Questão 4 - DEV III</title>
+    <style>
+        body {
+            font: normal 18pt Arial;
+        }
+
+        input {
+            font: normal 18pt Arial;
+            width: 100px;
+        }
+
+        div#res {
+            margin-top: 20px;
+        }
+
+        p {
+            text-align: justify;
+        }
+
+        div#assinatura {
+            position: absolute;
+            bottom: 0;
+            right: 0;
+        }
+    </style>
+</head>
+
+<body>
+    <h1>Questão 04</h1>
+    <p>Faça um Programa que peça o raio de um círculo, calcule e mostre sua área. Fórmula: Area = pi *
+        raio² (Bônus de um ponto para o sorteado ou voluntário que resolver)
+    </p>
+    </br>
+    <p>Informe o raio de um círculo: <input type="number" name="txt1" id="txt1"></p>
+    <input type="button" value="Calcular" onclick="Calcular()">
+    <div id="res">Resultado</div>
+
+    <div id="assinatura">Desenvolvido por <i>Gustavo Alves</i></div>
+    <script>
+        function Calcular() {
+            const inicio = new Date().getTime()
+
+            var tn1 = window.document.getElementById('txt1')
+
+            var n1 = Number(tn1.value)
+            var area = Math.PI * n1 * n1;
+
+            res.innerHTML = `A area do circulo é ${area}!`
+        }
+    </script>
+
+</html>

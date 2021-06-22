@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Questão 7 - DEV III</title>
+    <style>
+        body {
+            font: normal 18pt Arial;
+        }
+
+        input {
+            font: normal 18pt Arial;
+            width: 100px;
+        }
+
+        div#res {
+            margin-top: 20px;
+        }
+
+        p {
+            text-align: justify;
+        }
+
+        div#assinatura {
+            position: absolute;
+            bottom: 0;
+            right: 0;
+        }
+    </style>
+</head>
+
+<body>
+    <h1>Questão 07</h1>
+    <p>Faça um Programa que peça a temperatura em graus Celsius, transforme e mostre em graus
+        Farenheit. Fórmula : Farenheit = Celsius × 1,8 + 32 (Bônus de um ponto para o sorteado ou voluntário
+        que resolver)
+    </p>
+    </br>
+    <p>Informe a temperatura em graus Celsius: <input type="number" name="txt1" id="txt1">°C</p>
+    <input type="button" value="Mostrar" onclick="Mostrar()">
+    <div id="res">Resultado</div>
+
+    <div id="assinatura">Desenvolvido por <i>Gustavo Alves</i></div>
+    <script>
+        function Mostrar() {
+            const inicio = new Date().getTime()
+
+            var tn1 = window.document.getElementById('txt1')
+
+            var n1 = Number(tn1.value)
+            var farenheit = n1 * 1.8 + 32
+
+            res.innerHTML = `A temperatura ${n1}°C em Farenheit é ${farenheit}°F!`
+        }
+    </script>
+
+</html>

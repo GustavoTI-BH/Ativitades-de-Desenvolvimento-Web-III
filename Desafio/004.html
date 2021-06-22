@@ -1,0 +1,98 @@
+<!-- 4° desafio
+Crie uma pagina que mude a aparencia de acordo com a hora do dia.
+Se for de manha 6 e 12 horas - a pagina deve ter fundo branco e letras pretas
+de 12 as 18 horas - a pagina deve ter fundo amarelo e letras pretas
+de 18 as 00 horas - a pagina deve ter fundo escuro com letras brancas
+de 00 as 05:59 hrs - a pagina deve ter fundo azul com letras brancas -->
+
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>4º Desafio - DEV III</title>
+    <style>
+        body {
+            font: normal 20pt Arial;
+            text-align: justify;
+        }
+
+        section {
+            padding: 15px;
+            width: 600px;
+            margin: auto;
+        }
+
+        h1 {
+            text-align: center;
+            padding: 8px;
+        }
+
+        div#assinatura {
+            font: normal 18pt Arial;
+            position: absolute;
+            bottom: 0;
+            right: 0;
+        }
+    </style>
+</head>
+
+<body onload="carregar()">
+    
+    <h1 id="res">Resultado da data</h1>
+    <section>
+        <p>Em se tratando de Tecnologia da Informação ao teclarmos a barra de espaço, para um mecânico de automóveis,
+            sempre será um espaço vazio. Para um programador é um dado a mais para ser armazenado.
+            Para chegar no senso comum, é necessário estar no mesmo patamar de conhecimento.</p>
+    </section>
+
+    <div id="assinatura">Desenvolvido por <i>Gustavo Alves</i></div>
+    <script>
+        function carregar() {
+            // Obtém a data/hora atual
+            var data = new Date();
+
+            // Guardando cada parte da date em uma variável
+            var dia = data.getDate();           // 1-31
+            var mes = data.getMonth();          // 0-11 (zero=janeiro)
+            var ano = data.getFullYear();       // 4 dígitos
+            var hora = data.getHours();         // 0-23
+            var min = data.getMinutes();        // 0-59
+            var seg = data.getSeconds();        // 0-59
+
+            var dias = new Array(
+                'Domingo', 'Segunda-feira', 'Terça-feira', 'Quarta-feira', 'Quinta-feira', 'Sexta-feira', 'Sábado'
+            );
+
+            // Formata a data e a hora (note o mês + 1)
+            var str_data = dia + '/' + (mes + 1) + '/' + ano;
+            var str_hora = hora + ':' + min + ':' + seg;
+
+            res.innerHTML = `Hoje é ${dias[data.getDay()]}, dia ${str_data} às ${str_hora}`
+
+            //var hora = 2
+
+            if (hora >= 06 && hora < 12) {
+                //Manhã!
+                document.body.style.background = 'white'
+
+            } else if (hora > 12 && hora < 18) {
+                //Tarde'
+                document.body.style.background = '#FFD700'
+
+            } else if (hora > 18 && hora <= 24) {
+                //Noite!
+                document.body.style.background = '#000000'
+                document.body.style.color = 'white'
+
+            } else {
+                //Madrugada!
+                document.body.style.background = '#000080'
+                document.body.style.color = 'white'
+            }
+        }
+    </script>
+</body>
+
+</html>

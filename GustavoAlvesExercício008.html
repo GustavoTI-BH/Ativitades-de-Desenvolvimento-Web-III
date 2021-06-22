@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Questão 8 - DEV III</title>
+    <style>
+        body {
+            font: normal 18pt Arial;
+        }
+
+        input {
+            font: normal 18pt Arial;
+            width: 100px;
+        }
+
+        div#res {
+            margin-top: 20px;
+        }
+
+        p {
+            text-align: justify;
+        }
+
+        div#assinatura {
+            position: absolute;
+            bottom: 0;
+            right: 0;
+        }
+    </style>
+</head>
+
+<body>
+    <h1>Questão 08</h1>
+    <p>Faça um Programa que peça o valor da gasolina e do álcool de um posto e diga qual é o combustível
+        mais vantajoso abastecer, sabendo que somente é vantagem abastecer álcool se o preço do mesmo
+        é menor ou igual a 70% do valor da gasolina. (Bônus de dois pontos para o sorteado ou voluntário
+        que resolver)
+    </p>
+    </br>
+    <p>Informe o valor da gasolina: <input type="number" name="txt1" id="txt1"></p>
+    <p>Informe o valor do álcool: <input type="number" name="txt2" id="txt2"></p>
+    <input type="button" value="InformarNumero" onclick="Calcular()">
+    <div id="res">Resultado</div>
+
+    <div id="assinatura">Desenvolvido por <i>Gustavo Alves</i></div>
+    <script>
+        function Calcular() {
+            const inicio = new Date().getTime()
+
+            var tn1 = window.document.getElementById('txt1')
+            var n1 = Number(tn1.value)
+
+            var tn2 = window.document.getElementById('txt2')
+            var n2 = Number(tn2.value)
+
+            var resp = n2/n1
+
+            if(resp <= 0.7){
+                resp = resp * 100
+                res.innerHTML = `É vantagem abastecer <strong>álcool</strong>, a direrença é de <strong>${resp}%</strong>!`
+            }else{
+                resp = resp * 100
+                res.innerHTML = `É vantagem abastecer <strong>gasolina</strong>, a direrença é de <strong>${resp}%</strong>!`
+            }
+            
+            var media = (n1 + n2 + n3 + n4) /4
+
+        }
+    </script>
+
+</html>

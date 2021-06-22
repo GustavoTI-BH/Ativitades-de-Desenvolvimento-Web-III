@@ -1,0 +1,85 @@
+<!-- 3° desafio
+Cria um jogo que o usuário tem que advinhar um numero de 0 a 99.
+O numero é criado aleatoriamente.
+informar para o user fazer as apostas. Ele tem 5 tentativas
+Deve dizer ao user se ele acertou ou não e em quantas tentativas ele conseguiu -->
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>2º Desafio - DEV III</title>
+    <style>
+        body {
+            font: normal 18pt Arial;
+        }
+
+        input {
+            font: normal 18pt Arial;
+            width: 100px;
+        }
+
+        div#res {
+            margin-top: 20px;
+        }
+
+        p {
+            text-align: justify;
+        }
+
+        div#assinatura {
+            position: absolute;
+            bottom: 0;
+            right: 0;
+        }
+    </style>
+    <script>
+
+    </script>
+</head>
+
+<body onLoad="getRandomInt(0,99);">
+    <p>Um jogo para advinhar um numero de 0 a 99.
+        <br>
+        <small>OBS:</small>O numero é criado aleatoriamente. Você tera 5 tentativas!
+    </p>
+    </br>
+    <p>Infomre um número: <input type="number" name="txt1" id="txt1"></p>
+    <input type="button" value="InformarNumero" onclick="InformarNumero()">
+    <div id="res">Resultado</div>
+
+    <div id="assinatura">Desenvolvido por <i>Gustavo Alves</i></div>
+    <script>
+        var valorescolhido;
+        var i = 1;
+
+        function InformarNumero() {
+            var tn1 = window.document.getElementById('txt1')
+            var n1 = Number(tn1.value)
+            
+            if ((n1 == valorescolhido) && (i <= 5)) {
+                alert(`Você Acertou!\nO número informado foi: ${n1}\nO número gerado foi: ${valorescolhido}`)
+            } else if (i <= 5) {
+                alert(`Você Errou!\nTente novamente!\nO número informado foi: ${n1}`)
+                alert(`Você tem mais ${i} tentativa!`)
+                i = i+1
+            } else{
+                alert(`Você usou todas as tentativas!\nO número anterior gerado foi: ${valorescolhido}!\n`)
+                alert(`Vamos gerar um novo número!`)
+                getRandomInt(0,99)
+                i = 1
+            }
+
+        }
+
+        function getRandomInt(min, max) {
+            min = Math.ceil(min)
+            max = Math.floor(max)
+            valorescolhido = Math.floor(Math.random() * (max - min)) + min
+            //res.innerHTML = `O número gerado foi: ${valorescolhido}`
+        }
+
+    </script>
+
+</html>

@@ -1,0 +1,135 @@
+<!-- 1° desafio
+Escolha um tema e 3 imagens sobre ele.
+Escreva sobre o tema nas 3 imagens e quando o mouse for passado em cima o texto deverá aparecer, 
+o texto deve demorar um pouco para sumir, quando o texto sumir a imagem deve ficar em preto e branco. 
+Indique na pagina o que deve ser feito para o user passar o mouse. -->
+
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>1º Desafio - DEV III</title>
+    <style>
+        body {
+            font: normal 20pt Arial;
+            text-align: justify;
+        }
+
+        figure{
+            width: 50%;
+            height: 50%;
+        }
+
+        figure#img1 {
+            float: left;
+            margin: 0 10px 10px 0;
+        }
+
+        figure#img2 {
+            float: left;
+            margin: 0 10px 10px 0;
+        }
+
+        figure#img3 {
+            float: left;
+            margin: 0 10px 10px 0;
+        }
+
+        div#assinatura {
+            float: right;
+            font: normal 18pt Arial;
+            bottom: 0;
+            right: 0;
+        }
+    </style>
+</head>
+
+<body>
+    <div>
+        <figure id='img1'>
+            <img src="frase.jpg" alt="Graffiti" height="500" width="600"/>
+        </figure>
+        <p id='texto1'>ROUBAR que é! Assim como a imagem diz sobre o assunto que foi bem repercutido essa semana:
+            “Graffiti é crime no país onde roubar é arte”.<br><br>
+            Mas é claro que num país corrupto como o nosso, cheio de ladrãozinho e ladrãozão não podia dar outra né?
+            Pra político que rouba não tem lei que desfavorece, mas pra pobre artista que mostra sua arte nas ruas,
+            deixando uma cidade mais bonita, é crime!<br><br>
+            Não tô falando de pichação! Tô falando de grafite, que sim, é considerado como “arte urbana”
+            (arte nas ruas das cidades). Porém, em alguns lugares as pessoas tem o preconceito de que não
+            possa existir esse tipo de trabalho e arte nas ruas de uma cidade.</p>
+            <br>
+    </div>
+    <div>
+        <figure id='img2'>
+            <img src="frase.jpg" alt="Graffiti" height="500" width="600"/>
+        </figure>
+        <p id='texto2'>ROUBAR que é! Assim como a imagem diz sobre o assunto que foi bem repercutido essa semana:
+            “Graffiti é crime no país onde roubar é arte”.<br><br>
+            Mas é claro que num país corrupto como o nosso, cheio de ladrãozinho e ladrãozão não podia dar outra né?
+            Pra político que rouba não tem lei que desfavorece, mas pra pobre artista que mostra sua arte nas ruas,
+            deixando uma cidade mais bonita, é crime!<br><br>
+            Não tô falando de pichação! Tô falando de grafite, que sim, é considerado como “arte urbana”
+            (arte nas ruas das cidades). Porém, em alguns lugares as pessoas tem o preconceito de que não
+            possa existir esse tipo de trabalho e arte nas ruas de uma cidade.</p>
+            <br>
+    </div>
+    <div>
+        <figure id='img3'>
+            <img src="frase.jpg" alt="Graffiti" height="500" width="600"/>
+        </figure>
+        <p id='texto3'>ROUBAR que é! Assim como a imagem diz sobre o assunto que foi bem repercutido essa semana:
+            “Graffiti é crime no país onde roubar é arte”.<br><br>
+            Mas é claro que num país corrupto como o nosso, cheio de ladrãozinho e ladrãozão não podia dar outra né?
+            Pra político que rouba não tem lei que desfavorece, mas pra pobre artista que mostra sua arte nas ruas,
+            deixando uma cidade mais bonita, é crime!<br><br>
+            Não tô falando de pichação! Tô falando de grafite, que sim, é considerado como “arte urbana”
+            (arte nas ruas das cidades). Porém, em alguns lugares as pessoas tem o preconceito de que não
+            possa existir esse tipo de trabalho e arte nas ruas de uma cidade.</p>
+            <br>
+    </div>
+
+    <div id="assinatura">Desenvolvido por <i>Gustavo Alves</i></div>
+
+    <script>
+        document.getElementById("texto1").style.display = "none"
+        document.getElementById("texto2").style.display = "none"
+        document.getElementById("texto3").style.display = "none"
+
+        var imagem1 = window.document.getElementById('img1')
+        var imagem2 = window.document.getElementById('img2')
+        var imagem3 = window.document.getElementById('img3')
+
+        imagem1.addEventListener('mouseenter', entrarImg1)
+        imagem2.addEventListener('mouseenter', entrarImg2)
+        imagem3.addEventListener('mouseenter', entrarImg3)
+
+        function entrarImg1() {
+            document.getElementById("texto1").style.display = "block"
+            setTimeout(function () {
+                imagem1.setAttribute('style', 'filter: grayscale(100%);')
+                document.getElementById("texto1").style.display = "none"
+            }, 6000);
+        }
+
+        function entrarImg2() {
+            document.getElementById("texto2").style.display = "block"
+            setTimeout(function () {
+                imagem2.setAttribute('style', 'filter: grayscale(100%);')
+                document.getElementById("texto2").style.display = "none"
+            }, 6000);
+        }
+
+        function entrarImg3() {
+            document.getElementById("texto3").style.display = "block"
+            setTimeout(function () {
+                imagem3.setAttribute('style', 'filter: grayscale(100%);')
+                document.getElementById("texto3").style.display = "none"
+            }, 6000);
+        }
+    </script>
+
+</body>
+
+</html>
